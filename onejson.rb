@@ -1,0 +1,1 @@
+require 'json'; all_BUs = { 'pollTapeSubmissions' => [] }; Dir['base-organizada-2t/**/*.json'].each{ |relative_filepath| all_BUs['pollTapeSubmissions'] << JSON.parse(File.read(relative_filepath)).merge({ 'relativeFilepath' => relative_filepath }) }; File.open('pollTapeSubmissions.json', 'w') { |file| file << JSON.generate(all_BUs) }; nil
